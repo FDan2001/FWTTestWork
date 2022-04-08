@@ -14,6 +14,12 @@ import Location from './components/Location/Location';
 
 import Round from './components/Round/Round';
 
+import logo from './components/img/logo.png';
+
+import sl from './components/img/sun-light.png';
+
+import sd from './components/img/sun-dark.png';
+
 import { useTheme } from './hooks/use-theme'
 
 function App() {
@@ -85,15 +91,15 @@ function App() {
 
   const { theme, setTheme } = useTheme()
 
-  const [btnThemeStyle, setBtnThemeStyle]=useState('/img/sun-'+theme+'.png')
+  const [btnThemeStyle, setBtnThemeStyle]=useState((theme=='light')?sl:sd)
 
   function handleThemeClick() {
     if (theme=='light') {
       setTheme('dark')
-      setBtnThemeStyle('/img/sun-dark.png')
+      setBtnThemeStyle(sd)
     }else {
       setTheme('light')
-      setBtnThemeStyle('/img/sun-light.png')
+      setBtnThemeStyle(sl)
     }
   }
 
@@ -101,7 +107,7 @@ function App() {
     <div className="App">
     <nav className="navbar navbar-light bg-nav">
       <div className="container">
-        <img className="logo" src='/img/logo.png'/>
+        <img className="logo" src={logo}/>
         <img onClick={handleThemeClick} className="btn-theme" src={btnThemeStyle}/>
       </div>
     </nav>

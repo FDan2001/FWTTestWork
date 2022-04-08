@@ -57,6 +57,12 @@ code {
   }
 }
 
+@media (min-width: 100px) and (max-width: 768px) {
+  .select-box {
+      max-width: 100%!important;
+  }
+}
+
 .row-items{
   display: grid;
   grid-template-columns:  minmax(160px, 265px) minmax(160px, 265px) minmax(160px, 265px) minmax(160px, 265px);
@@ -74,6 +80,7 @@ code {
 
 .cart{
   max-height: 275px;
+  min-height: 205px;
   background: aliceblue;
   border-radius: 20px;
   position: relative;
@@ -82,8 +89,12 @@ code {
 }
 
 .cart:hover .container-painting-rules{
-  height: 50%;
+  height: 55%;
   transition: .5s;
+}
+
+.cart:hover .description{
+  white-space: normal;
 }
 
 .img-paint {
@@ -113,6 +124,11 @@ code {
 
 .description{
   margin-bottom: 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+  order: 0;
+  overflow: hidden;
 }
 
 .rules{
